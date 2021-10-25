@@ -20,17 +20,28 @@ and returns the best profit I could have made from
 
 ## Assumptions:
 
+- Docker
+
+OR
+
 - python3.x is installed
 - pip is installed
 - virtualenv is installed
 
 ## How to run the function
 
+Using Docker:
+```
+docker run -it -v $PWD:/data qnib/pytest python /data/max_profit.py -s 10 7 5 12 11 9
+```
+
+Without Docker:
+
 ```
 virtualenv venv
 source venv/bin/activate
 pip install -r requirements
-python max_profit.py 10 7 5 12 11 9
+python max_profit.py -s 10 7 5 12 11 9
 ```
 
 ## Code Quality
@@ -50,8 +61,18 @@ Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
 
 ## Unit Tests
 
+Using Docker:
+```
+docker run -it -v $PWD:/data qnib/pytest pytest -v  /data
+```
+
+Without Docker:
 ```
 pytest -v --no-header
+```
+
+Sample Unit Test results:
+```
 ==================================================================================================================== test session starts =====================================================================================================================
 collected 4 items
 
